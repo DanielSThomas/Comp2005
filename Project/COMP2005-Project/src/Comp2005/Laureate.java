@@ -42,10 +42,10 @@ public class Laureate
     private String diedCountryCode;
     private String diedCity;
     private String gender;
-   //Todo private ArrayList<Prize> prizes;
+    private ArrayList<Prize> prizes;
        
     public Laureate(int new_id, String new_firstname, String new_surname, Date new_born, Date new_died, String new_bornCountry, String new_bornCountryCode,
-           String new_bornCity, String new_diedCountry, String new_diedCountryCode, String new_diedCity, String new_gender, ArrayList<String> new_prizes)
+           String new_bornCity, String new_diedCountry, String new_diedCountryCode, String new_diedCity, String new_gender, ArrayList<Prize> new_prizes)
     {
        id = new_id;
        firstname = new_firstname;
@@ -59,7 +59,7 @@ public class Laureate
        diedCountryCode = new_diedCountryCode;
        diedCity = new_diedCity;
        gender = new_gender;  
-       //Todo prizes = new_prizes
+       prizes = new_prizes;
        
     }
     
@@ -185,15 +185,15 @@ public class Laureate
         this.gender = gender;
     }
     
-//    public ArrayList<Prize> getPrizes()
-//    {
-//        return prizes;
-//    }
+    public ArrayList<Prize> getPrizes()
+    {
+        return prizes;
+    }
     
-//     public void setReviews(ArrayList<Prize>  prizes) 
-//    {
-//        this.prizes = prizes;
-//    }
+     public void setReviews(ArrayList<Prize>  prizes) 
+    {
+        this.prizes = prizes;
+    }
     
     
 }
