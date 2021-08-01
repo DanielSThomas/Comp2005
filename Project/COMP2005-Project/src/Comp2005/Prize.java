@@ -28,14 +28,15 @@ public class Prize
     private String catagory;
     private int share;
     private String motivation;
-   // Todo private ArrayList<affiliation> affiliations;
+    private ArrayList<Affiliation> affiliations;
     
-      public Prize(Date new_year, String new_catagory, int new_share, String new_motivation) 
+      public Prize(Date new_year, String new_catagory, int new_share, String new_motivation, ArrayList<Affiliation> new_affiliations) 
     {
         year = new_year;
         catagory = new_catagory;
         share = new_share;
         motivation = new_motivation;
+        affiliations= new_affiliations;
     }
       
       
@@ -77,6 +78,16 @@ public class Prize
     public void setMotivation(String motivation) 
     {
         this.motivation = motivation;
+    }
+    
+        public ArrayList<Affiliation> getAffiliations()
+    {
+        return affiliations;
+    }
+    
+     public void setReviews(ArrayList<Affiliation>  affiliations) 
+    {
+        this.affiliations = affiliations;
     }
             
 }
