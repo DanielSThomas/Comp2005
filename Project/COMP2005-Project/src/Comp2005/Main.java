@@ -16,7 +16,12 @@
 
 package Comp2005;
 
+import com.google.gson.ExclusionStrategy;
 import java.io.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  *
@@ -25,15 +30,71 @@ import java.io.*;
 public class Main 
 {
     
+    static String filePath = "src\\Comp2005\\laureate-data.json";
     
-    
-    public static void main(String[] args)
+    public static void main(String[] args) throws FileNotFoundException
     {
-        
-        
+            
+        Laureates laureates;
+                         
+        FormatJsonToString(filePath);
+                 
+        laureates = loadJSONData(filePath); 
               
+        System.out.print(laureates.getLaureates().get(0).getAllInfo()); 
                          
     }
+    
+    
+    
+    
+    private static void FormatJsonToString(String filePath) //Recreate the json file to fix error with gson reading null affiliations as arrays instead of null object.
+    {
+        String jsonString = "";
+ 
+        try        
+        {
+            //Todo Check if file already exists
+            jsonString = new String ( Files.readAllBytes( Paths.get(filePath) ) );
+            
+            jsonString = jsonString.replaceAll("\\[\\[\\]\\]", "\\[\\]"); //Gson doesn't like [[]] format for some reason. It's still valid Json so not sure what is wrong ?
+                                 
+            FileWriter writer = new FileWriter("src\\Comp2005\\formated-laureate-data.json");
+            
+            writer.write(jsonString);
+            
+            writer.close();
+                     
+        } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+ 
+        
+    }
+    
        
+    
+    public static Laureates loadJSONData(String filePath) throws FileNotFoundException
+    {
+        
+  
+        
+        GsonBuilder builder = new GsonBuilder(); 
+                          
+        Gson gson = builder.create(); 
+              
+        
+            Laureates laureates = gson.fromJson(new FileReader("src\\Comp2005\\formated-laureate-data.json"), Laureates.class);
+            
+             
+            
+            System.out.println(laureates.getLaureates());
+        
+        return laureates;
+    
+        
+    }
       
 }

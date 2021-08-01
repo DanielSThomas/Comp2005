@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 package Comp2005;
-import java.util.Date;
 import java.util.ArrayList;
 /**
  *
@@ -24,40 +23,40 @@ import java.util.ArrayList;
 public class Prize 
 {
 
-    private Date year;
-    private String catagory;
+    private int year;
+    private String category;
     private int share;
     private String motivation;
     private ArrayList<Affiliation> affiliations;
     
-      public Prize(Date new_year, String new_catagory, int new_share, String new_motivation, ArrayList<Affiliation> new_affiliations) 
+      public Prize(int new_year, String new_category, int new_share, String new_motivation, ArrayList<Affiliation> new_affiliations) 
     {
         year = new_year;
-        catagory = new_catagory;
+        category = new_category;
         share = new_share;
         motivation = new_motivation;
         affiliations = new_affiliations;
     }
       
       
-        public Date getYear() 
+        public int getYear() 
     {
         return year;
     }
 
-    public void setYear(Date year) 
+    public void setYear(int year) 
     {
         this.year = year;
     }
 
-    public String getCatagory() 
+    public String getCategory() 
     {
-        return catagory;
+        return category;
     }
 
-    public void setCatagory(String catagory) 
+    public void setCategory(String category) 
     {
-        this.catagory = catagory;
+        this.category = category;
     }
 
     public int getShare() 

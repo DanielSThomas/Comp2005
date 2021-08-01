@@ -32,12 +32,12 @@ public class Laureates
     }
     
     
-     public ArrayList<Laureate> getRestaurants() 
+     public ArrayList<Laureate> getLaureates() 
     {
         return laureates;
     }
 
-    public void setRestaurants(ArrayList<Laureate> restaurants) 
+    public void setLaureates(ArrayList<Laureate> restaurants) 
     {
         this.laureates = laureates;
     }
