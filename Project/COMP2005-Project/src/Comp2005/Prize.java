@@ -36,7 +36,7 @@ public class Prize
         catagory = new_catagory;
         share = new_share;
         motivation = new_motivation;
-        affiliations= new_affiliations;
+        affiliations = new_affiliations;
     }
       
       
