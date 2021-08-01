@@ -63,7 +63,13 @@ public class Laureate
        
     }
     
-    
+    public String getAllInfo()
+    {
+        String _string = new String("ID: " + id + " First name: " + firstname + "  Surname: " + surname + " Born: " + born +  " died: " 
+        + died + " Country Born: " + bornCountry + " Country Born Code: " + bornCountryCode + " City Born: " + bornCity + " Country of Death: " + diedCountry + 
+        " Country of Death Code: " + diedCountryCode + " City of Death: " + diedCity + " gender: " + gender);
+         return _string;
+     }
     
     public int getId() 
     {
