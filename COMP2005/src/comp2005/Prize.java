@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package Comp2005;
+package comp2005;
 import java.util.ArrayList;
 /**
  *

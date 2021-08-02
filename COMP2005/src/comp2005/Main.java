@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package Comp2005;
+package comp2005;
 
 import java.io.*;
 import com.google.gson.Gson;
@@ -40,8 +40,8 @@ public class Main
                  
         laureates = loadJSONData(filePath); 
               
-        System.out.print(laureates.getLaureates().get(0).getAllInfo()); 
-                         
+        System.out.println(laureates.getLaureates().get(8).getAllInfo()); 
+        System.out.println(laureates.getLaureates().get(10).getAllInfo());              
     }
     
     
