@@ -33,8 +33,8 @@ public class Laureate
     private int id;
     private String firstname;
     private String surname;
-    private Date born;
-    private Date died;
+    private String born;
+    private String died;
     private String bornCountry;
     private String bornCountryCode;
     private String bornCity;
@@ -44,7 +44,7 @@ public class Laureate
     private String gender;
     private ArrayList<Prize> prizes;
        
-    public Laureate(int new_id, String new_firstname, String new_surname, Date new_born, Date new_died, String new_bornCountry, String new_bornCountryCode,
+    public Laureate(int new_id, String new_firstname, String new_surname, String new_born, String new_died, String new_bornCountry, String new_bornCountryCode,
            String new_bornCity, String new_diedCountry, String new_diedCountryCode, String new_diedCity, String new_gender, ArrayList<Prize> new_prizes)
     {
        id = new_id;
@@ -65,9 +65,9 @@ public class Laureate
     
     public String getAllInfo()
     {
-        String _string = new String("ID: " + id + " First name: " + firstname + "  Surname: " + surname + " Born: " + born +  " died: " 
-        + died + " Country Born: " + bornCountry + " Country Born Code: " + bornCountryCode + " City Born: " + bornCity + " Country of Death: " + diedCountry + 
-        " Country of Death Code: " + diedCountryCode + " City of Death: " + diedCity + " gender: " + gender);
+        String _string = new String("ID:" + id + " " + firstname + " " +  surname + "  Born: " + born +  "  Died: " 
+        + died + "  Country Born: " + bornCountry + "  Country Born Code: " + bornCountryCode + "  City Born: " + bornCity + "  Country of Death: " + diedCountry + 
+        "  Country of Death Code: " + diedCountryCode + "  City of Death: " + diedCity + "  Gender: " + gender);
          return _string;
      }
     
@@ -101,22 +101,22 @@ public class Laureate
         this.surname = surname;
     }
 
-    public Date getBorn() 
+    public String getBorn() 
     {
         return born;
     }
 
-    public void setBorn(Date born) 
+    public void setBorn(String born) 
     {
         this.born = born;
     }
 
-    public Date getDied() 
+    public String getDied() 
     {
         return died;
     }
 
-    public void setDied(Date died) 
+    public void setDied(String died) 
     {
         this.died = died;
     }

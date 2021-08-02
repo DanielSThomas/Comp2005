@@ -41,7 +41,8 @@ public class Main
         laureates = loadJSONData(filePath); 
               
         System.out.println(laureates.getLaureates().get(8).getAllInfo()); 
-        System.out.println(laureates.getLaureates().get(10).getAllInfo());              
+        System.out.println(laureates.getLaureates().get(10).getAllInfo());   
+        System.out.println(laureates.getLaureates().get(10).getPrizes().get(0).getMotivation());
     }
     
     
@@ -87,9 +88,7 @@ public class Main
         
             Laureates laureates = gson.fromJson(new FileReader("src\\Comp2005\\formated-laureate-data.json"), Laureates.class);
             
-             
             
-            System.out.println(laureates.getLaureates());
         
         return laureates;
     
