@@ -38,6 +38,11 @@ public class Prize
         affiliations = new_affiliations;
     }
       
+      public String getAllInfo()
+    {
+        String _string = new String("Year: " + year + "  Category: " + category + "  Share: " + share + "  Motivation: " + motivation);
+        return _string;
+    }   
       
         public int getYear() 
     {

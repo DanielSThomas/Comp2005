@@ -34,6 +34,12 @@ public class Affiliation
         city = new_city;
         country = new_country;
     }
+     
+       public String getAllInfo()
+    {
+        String _string = new String("Name: " + name + "  City: " + city + "  Country: " + country);
+        return _string;
+    }   
       
         
     public String getName() 
