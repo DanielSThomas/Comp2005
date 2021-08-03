@@ -65,7 +65,7 @@ public class Laureate
     
     public String getAllInfo()
     {
-        String _string = new String("ID:" + id + " " + firstname + " " +  surname + "  Born: " + born +  "  Died: " 
+        String _string = new String("ID: " + id + " " + firstname + " " +  surname + "  Born: " + born +  "  Died: " 
         + died + "  Country Born: " + bornCountry + "  Country Born Code: " + bornCountryCode + "  City Born: " + bornCity + "  Country of Death: " + diedCountry + 
         "  Country of Death Code: " + diedCountryCode + "  City of Death: " + diedCity + "  Gender: " + gender);
          return _string;

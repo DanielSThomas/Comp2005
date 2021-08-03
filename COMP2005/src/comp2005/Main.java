@@ -36,21 +36,51 @@ public class Main
             
         Laureates laureates;
                          
-        FormatJsonToString(filePath);
+        formatJsonToString(filePath);
                  
         laureates = loadJSONData(filePath); 
               
-        System.out.println(laureates.getLaureates().get(8).getAllInfo()); 
-        System.out.println(laureates.getLaureates().get(10).getAllInfo());   
-        System.out.println(laureates.getLaureates().get(10).getPrizes().get(0).getMotivation());
+        printLaureates(laureates);
+       
+    }
+    
+    
+    
+     private static void printLaureates(Laureates laureates)
+    {
+        
+        for (int i = 0; i < laureates.getLaureates().size(); i++) 
+        {
+            System.out.println("Laureate " + laureates.getLaureates().get(i).getId());
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("Laureate - " + laureates.getLaureates().get(i).getAllInfo());
+            
+            
+            for (int j = 0; j < laureates.getLaureates().get(i).getPrizes().size(); j++) 
+            {
+               System.out.println("Prize - " + laureates.getLaureates().get(i).getPrizes().get(j).getAllInfo());
+                                       
+                for (int k = 0; k < laureates.getLaureates().get(i).getPrizes().get(j).getAffiliations().size(); k++) 
+                {
+                 System.out.println("Affiliation - " + laureates.getLaureates().get(i).getPrizes().get(j).getAffiliations().get(k).getAllInfo());
+                }   
+                
+            }    
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("");
+            
+        }
+                  
     }
     
     
     
     
-    private static void FormatJsonToString(String filePath) //Recreate the json file to fix error with gson reading null affiliations as arrays instead of null object.
+    
+    
+    private static void formatJsonToString(String filePath) //Recreate the json file to fix error with gson reading null affiliations as arrays instead of null object.
     {
-        String jsonString = "";
+        String jsonString;
  
         try        
         {
@@ -70,28 +100,21 @@ public class Main
         {
             e.printStackTrace();
         }
- 
         
     }
     
        
     
-    public static Laureates loadJSONData(String filePath) throws FileNotFoundException
+    private static Laureates loadJSONData(String filePath) throws FileNotFoundException
     {
-        
-  
-        
+               
         GsonBuilder builder = new GsonBuilder(); 
                           
-        Gson gson = builder.create(); 
-              
+        Gson gson = builder.create();               
         
             Laureates laureates = gson.fromJson(new FileReader("src\\Comp2005\\formated-laureate-data.json"), Laureates.class);
-            
-            
-        
+                       
         return laureates;
-    
         
     }
       
