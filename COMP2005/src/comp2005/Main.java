@@ -31,12 +31,14 @@ public class Main
     
     static String filePath = "src\\Comp2005\\laureate-data.json";
     
+    static String formatedFilePath = "src\\Comp2005\\formated-laureate-data.json";
+    
     public static void main(String[] args) throws FileNotFoundException
     {
             
         Laureates laureates;
                          
-        formatJsonToString(filePath);
+        formatJsonToString(filePath,formatedFilePath);
                  
         laureates = loadJSONData(filePath); 
               
@@ -53,22 +55,20 @@ public class Main
         {
             System.out.println("Laureate " + laureates.getLaureates().get(i).getId());
             System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.println("Laureate - " + laureates.getLaureates().get(i).getAllInfo());
+            System.out.println("Laureate - " + laureates.getLaureates().get(i).getAllInfo()); // Print Laureate data
             
             
             for (int j = 0; j < laureates.getLaureates().get(i).getPrizes().size(); j++) 
             {
-               System.out.println("Prize - " + laureates.getLaureates().get(i).getPrizes().get(j).getAllInfo());
+               System.out.println("Prize - " + laureates.getLaureates().get(i).getPrizes().get(j).getAllInfo()); // Print Prize data
                                        
                 for (int k = 0; k < laureates.getLaureates().get(i).getPrizes().get(j).getAffiliations().size(); k++) 
                 {
-                 System.out.println("Affiliation - " + laureates.getLaureates().get(i).getPrizes().get(j).getAffiliations().get(k).getAllInfo());
-                }   
-                
+                 System.out.println("Affiliation - " + laureates.getLaureates().get(i).getPrizes().get(j).getAffiliations().get(k).getAllInfo()); // Print Affiliation data
+                }               
             }    
             System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.println("");
-            
+            System.out.println("");           
         }
                   
     }
@@ -78,7 +78,7 @@ public class Main
     
     
     
-    private static void formatJsonToString(String filePath) //Recreate the json file to fix error with gson reading null affiliations as arrays instead of null object.
+    public static void formatJsonToString(String filePath, String formatedFilePath) //Recreate the json file to fix error with gson reading null affiliations as arrays instead of null object.
     {
         String jsonString;
  
@@ -89,7 +89,7 @@ public class Main
             
             jsonString = jsonString.replaceAll("\\[\\[\\]\\]", "\\[\\]"); //Gson doesn't like [[]] format for some reason. It's still valid Json so not sure what is wrong ?
                                  
-            FileWriter writer = new FileWriter("src\\Comp2005\\formated-laureate-data.json");
+            FileWriter writer = new FileWriter(formatedFilePath);
             
             writer.write(jsonString);
             
@@ -105,14 +105,14 @@ public class Main
     
        
     
-    private static Laureates loadJSONData(String filePath) throws FileNotFoundException
+    public static Laureates loadJSONData(String formatedFilePath) throws FileNotFoundException
     {
                
         GsonBuilder builder = new GsonBuilder(); 
                           
         Gson gson = builder.create();               
         
-            Laureates laureates = gson.fromJson(new FileReader("src\\Comp2005\\formated-laureate-data.json"), Laureates.class);
+            Laureates laureates = gson.fromJson(new FileReader(formatedFilePath), Laureates.class);
                        
         return laureates;
         
