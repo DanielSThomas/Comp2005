@@ -49,13 +49,10 @@ public class MainIT {
 
     @Test
     public void testLoadJSONDataLength() throws Exception //Loads, formats and tests the data by checking it has the correct amount of laureates
-    {
-        
+    {       
               
         System.out.println("TestLoadJSONDataLength---------------");
-        
-        
-        
+                  
         String filePath = "src\\Comp2005\\laureate-data.json";
         String formatedFilePath = "src\\Comp2005\\formated-laureate-data.json";
         int expResult = 955;

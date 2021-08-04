@@ -37,7 +37,7 @@ public class Laureates
         return laureates;
     }
 
-    public void setLaureates(ArrayList<Laureate> restaurants) 
+    public void setLaureates(ArrayList<Laureate> laureates) 
     {
         this.laureates = laureates;
     }

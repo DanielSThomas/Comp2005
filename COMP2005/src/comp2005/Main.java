@@ -21,6 +21,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 /**
  *
@@ -40,9 +41,9 @@ public class Main
                          
         formatJsonToString(filePath,formatedFilePath);
                  
-        laureates = loadJSONData(filePath); 
+        laureates = loadJSONData(formatedFilePath); 
               
-        printLaureates(laureates);
+        printLaureates(returnLaureatesOnCountryFieldAndYear(laureates,"USA","chemistry",2000));
        
     }
     
@@ -53,11 +54,10 @@ public class Main
         
         for (int i = 0; i < laureates.getLaureates().size(); i++) 
         {
-            System.out.println("Laureate " + laureates.getLaureates().get(i).getId());
+            System.out.println("Laureate " + (i + 1));
             System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.println("Laureate - " + laureates.getLaureates().get(i).getAllInfo()); // Print Laureate data
-            
-            
+                      
             for (int j = 0; j < laureates.getLaureates().get(i).getPrizes().size(); j++) 
             {
                System.out.println("Prize - " + laureates.getLaureates().get(i).getPrizes().get(j).getAllInfo()); // Print Prize data
@@ -74,9 +74,7 @@ public class Main
     }
     
     
-    
-    
-    
+     
     
     public static void formatJsonToString(String filePath, String formatedFilePath) //Recreate the json file to fix error with gson reading null affiliations as arrays instead of null object.
     {
@@ -118,4 +116,47 @@ public class Main
         
     }
       
+    
+    
+      public static Laureates returnLaureatesOnCountryFieldAndYear(Laureates laureates, String country, String field, int year)
+    {
+        
+        Laureates finalSortedLaureates = new Laureates(new ArrayList<Laureate>());
+        ArrayList<Laureate> sortedLaureates = new ArrayList<Laureate>();
+        
+        country = country.toLowerCase();
+        field = field.toLowerCase();
+        
+        
+        
+            for (int i = 0; i < laureates.getLaureates().size(); i++) 
+            { 
+                
+                if (laureates.getLaureates().get(i).getBornCountry() != null && laureates.getLaureates().get(i).getBornCountry().toLowerCase().equals(country))
+                {
+                    for (int j = 0; j < laureates.getLaureates().get(i).getPrizes().size(); j++) 
+                    {
+                        if (laureates.getLaureates().get(i).getPrizes().get(j).getCategory().toLowerCase().equals(field) && (laureates.getLaureates().get(i).getPrizes().get(j).getYear() >= year))
+                        {
+                                sortedLaureates.add(laureates.getLaureates().get(i));                                                       
+                        }
+                    }
+                }
+       
+            }
+        
+ 
+        finalSortedLaureates.setLaureates(sortedLaureates);
+        
+        return finalSortedLaureates;
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 }
