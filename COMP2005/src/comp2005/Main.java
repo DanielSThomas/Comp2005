@@ -43,14 +43,20 @@ public class Main
                  
         laureates = loadJSONData(formatedFilePath); 
               
-        printLaureates(returnLaureatesOnCountryFieldAndYear(laureates,"USA","chemistry",2000));
+        printLaureates(returnLaureatesOnCountryFieldAndYear(laureates,"usa","physics",1998));
        
     }
     
     
     
-     private static void printLaureates(Laureates laureates)
+    public static void printLaureates(Laureates laureates)
     {
+        
+        if (laureates.getLaureates().isEmpty())
+        {
+           System.out.println("No Laureates found. "); 
+           System.out.println("Try using different parameters."); 
+        }
         
         for (int i = 0; i < laureates.getLaureates().size(); i++) 
         {

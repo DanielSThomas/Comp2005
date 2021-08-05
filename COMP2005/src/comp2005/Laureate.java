@@ -196,7 +196,7 @@ public class Laureate
         return prizes;
     }
     
-     public void setReviews(ArrayList<Prize>  prizes) 
+     public void setPrizes(ArrayList<Prize> prizes) 
     {
         this.prizes = prizes;
     }
