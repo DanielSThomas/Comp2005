@@ -43,7 +43,9 @@ public class Main
                  
         laureates = loadJSONData(formatedFilePath); 
               
-        printLaureates(returnLaureatesOnCountryFieldAndYear(laureates,"usa","physics",1998));
+        //printLaureates(returnLaureatesOnCountryFieldAndYear(laureates,"usa","physics",1998));
+        
+        printLaureates(returnLaureatesOnShareFieldAndYear(laureates,"physics",2020));
        
     }
     
@@ -148,6 +150,39 @@ public class Main
                         }
                     }
                 }
+       
+            }
+        
+ 
+        finalSortedLaureates.setLaureates(sortedLaureates);
+        
+        return finalSortedLaureates;
+        
+    }
+      
+       public static Laureates returnLaureatesOnShareFieldAndYear(Laureates laureates, String field, int year)
+    {
+        
+        Laureates finalSortedLaureates = new Laureates(new ArrayList<Laureate>());
+        ArrayList<Laureate> sortedLaureates = new ArrayList<Laureate>();
+        
+        
+        field = field.toLowerCase();
+        
+        
+        
+            for (int i = 0; i < laureates.getLaureates().size(); i++) 
+            { 
+                
+                
+                for (int j = 0; j < laureates.getLaureates().get(i).getPrizes().size(); j++) 
+                {
+                    if (laureates.getLaureates().get(i).getPrizes().get(j).getCategory().toLowerCase().equals(field) && (laureates.getLaureates().get(i).getPrizes().get(j).getYear() == year) && (laureates.getLaureates().get(i).getPrizes().get(j).getShare() >= 2))
+                    {
+                        sortedLaureates.add(laureates.getLaureates().get(i));                                                       
+                    }
+                }
+                
        
             }
         

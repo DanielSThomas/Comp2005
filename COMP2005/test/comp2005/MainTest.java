@@ -42,9 +42,12 @@ public class MainTest
         
         ArrayList<Prize> mockPrize01 = new ArrayList<Prize>();
         
-        mockPrize01.add(new Prize(2019,"medicine",1,"for their discoveries of how to name stuff",mockAffiliation01));
+        mockPrize01.add(new Prize(2019,"medicine",1,"for their discoveries of how to name stuff.",mockAffiliation01));
         
         Laureate mockLaureate01 = new Laureate(01,"Dean","Smith","1967-01-12","0000-00-00","USA","US","Somewhere",null,null,null,"male",mockPrize01);
+        
+        
+        //Mock laureate 02
         
  
         //Adding the laureates to the parrent laureates object
