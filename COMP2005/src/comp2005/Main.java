@@ -47,7 +47,9 @@ public class Main
         
         //printLaureates(returnLaureatesOnShareFieldAndYear(laureates,"physics",2020));
         
-        printLaureates(returnLaureatesOnUniversityAndGender(laureates,"University of Chicago","male"));
+        //printLaureates(returnLaureatesOnUniversityAndGender(laureates,"University of Chicago","male"));
+        
+        printLaureates(returnLaureatesOnCountryAndAlive(laureates,"usa"));
        
     }
     
@@ -220,6 +222,28 @@ public class Main
                              }                             
                         }
                      }   
+                }               
+            }
+        
+        finalSortedLaureates.setLaureates(sortedLaureates);
+        
+        return finalSortedLaureates;
+        
+    }
+    
+     public static Laureates returnLaureatesOnCountryAndAlive(Laureates laureates, String country)
+    {
+        
+        Laureates finalSortedLaureates = new Laureates(new ArrayList<Laureate>());
+        ArrayList<Laureate> sortedLaureates = new ArrayList<Laureate>();
+        
+        country = country.toLowerCase();
+                  
+            for (int i = 0; i < laureates.getLaureates().size(); i++) 
+            { 
+                if(laureates.getLaureates().get(i).getBornCountry() != null && laureates.getLaureates().get(i).getBornCountry().toLowerCase().equals(country) && laureates.getLaureates().get(i).getDied().equals("0000-00-00"))
+                {
+                  sortedLaureates.add(laureates.getLaureates().get(i));          
                 }               
             }
         
