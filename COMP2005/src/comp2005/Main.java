@@ -45,7 +45,9 @@ public class Main
               
         //printLaureates(returnLaureatesOnCountryFieldAndYear(laureates,"usa","physics",1998));
         
-        printLaureates(returnLaureatesOnShareFieldAndYear(laureates,"physics",2020));
+        //printLaureates(returnLaureatesOnShareFieldAndYear(laureates,"physics",2020));
+        
+        printLaureates(returnLaureatesOnUniversityAndGender(laureates,"University of Chicago","male"));
        
     }
     
@@ -194,7 +196,38 @@ public class Main
     }
     
     
-    
+    public static Laureates returnLaureatesOnUniversityAndGender(Laureates laureates, String university, String gender)
+    {
+        
+        Laureates finalSortedLaureates = new Laureates(new ArrayList<Laureate>());
+        ArrayList<Laureate> sortedLaureates = new ArrayList<Laureate>();
+        
+        university = university.toLowerCase();
+        gender = gender.toLowerCase();
+        
+        
+            for (int i = 0; i < laureates.getLaureates().size(); i++) 
+            { 
+                if(laureates.getLaureates().get(i).getGender().toLowerCase().equals(gender))
+                {
+                    for (int j = 0; j < laureates.getLaureates().get(i).getPrizes().size(); j++) 
+                    {
+                        for (int k = 0; k < laureates.getLaureates().get(i).getPrizes().get(j).getAffiliations().size(); k++)
+                        {
+                             if(laureates.getLaureates().get(i).getPrizes().get(j).getAffiliations().get(k).getName().toLowerCase().equals(university))
+                             {
+                                 sortedLaureates.add(laureates.getLaureates().get(i));  
+                             }                             
+                        }
+                     }   
+                }               
+            }
+        
+        finalSortedLaureates.setLaureates(sortedLaureates);
+        
+        return finalSortedLaureates;
+        
+    }
     
     
     
