@@ -42,7 +42,7 @@ public class MainTest
         
         ArrayList<Prize> mockPrize01 = new ArrayList<Prize>();
         
-        mockPrize01.add(new Prize(2019,"medicine",1,"for their discoveries of how to name stuff.",mockAffiliation01));
+        mockPrize01.add(new Prize(2009,"medicine",1,"for their discoveries of how to name stuff.",mockAffiliation01));
         
         Laureate mockLaureate01 = new Laureate(01,"Dean","Smith","1967-01-12","0000-00-00","USA","US","Somewhere",null,null,null,"male",mockPrize01);
         
@@ -57,9 +57,53 @@ public class MainTest
         
         ArrayList<Prize> mockPrize02 = new ArrayList<Prize>();
         
-        mockPrize02.add(new Prize(2019,"physics",2,"for their discoveries in physics.",mockAffiliation02));
+        mockPrize02.add(new Prize(2010,"physics",2,"for their discoveries in physics.",mockAffiliation02));
         
-        Laureate mockLaureate02 = new Laureate(01,"Dean","Smith","1967-01-12","0000-00-00","USA","US","Somewhere",null,null,null,"male",mockPrize02);
+        Laureate mockLaureate02 = new Laureate(02,"Anna","Thomas","1960-08-12","0000-00-00","United Kingdom","GB","Nowhere",null,null,null,"female",mockPrize02);
+        
+        
+        //Mock laureate 03
+        
+        ArrayList<Affiliation> mockAffiliation03 = new ArrayList<Affiliation>();
+        
+        mockAffiliation03.add(new Affiliation("Another University","Nowhere","United Kingdom"));
+        
+        mockAffiliation03.add(new Affiliation("A New University","Someplace","United Kingdom"));
+        
+        ArrayList<Affiliation> mockAffiliation03a = new ArrayList<Affiliation>();
+        
+        mockAffiliation03a.add(new Affiliation("A New University","Someplace","United Kingdom"));
+        
+        ArrayList<Prize> mockPrize03 = new ArrayList<Prize>();
+        
+        mockPrize03.add(new Prize(2010,"physics",2,"for their discoveries in physics.",mockAffiliation03));
+        
+        mockPrize03.add(new Prize(2018,"physics",1,"for their further discoveries in physics.",mockAffiliation03a));
+        
+        Laureate mockLaureate03 = new Laureate(03,"Sean","William","1959-09-21","2020-02-06","United Kingdom","GB","Nowhere","United Kingdom","GB","Nowhere","male",mockPrize03);
+        
+        
+        //Mock laureate 04 
+        
+        ArrayList<Affiliation> mockAffiliation04 = new ArrayList<Affiliation>();
+                
+        ArrayList<Prize> mockPrize04 = new ArrayList<Prize>();
+        
+        mockPrize04.add(new Prize(2020,"chemistry",1,"for their discoveries in chemistry.",mockAffiliation04));
+        
+        Laureate mockLaureate04 = new Laureate(04,"Hermann","Wolfgang","1989-08-10","0000-00-00","Germany","DE","Irgendwo",null,null,null,"male",mockPrize04);
+        
+        //Mock laureate 05
+        
+        ArrayList<Affiliation> mockAffiliation05 = new ArrayList<Affiliation>();
+        
+        mockAffiliation05.add(new Affiliation("University of economics","Nowhereatall","USA"));        
+        
+        ArrayList<Prize> mockPrize05 = new ArrayList<Prize>();
+        
+        mockPrize05.add(new Prize(2005,"economics",1,"for their discoveries in economics.",mockAffiliation05));
+        
+        Laureate mockLaureate05 = new Laureate(05,"Emma","Schelling","1930-04-19","2018-12-13","USA","US","Nowhereatall","USA","US","Aplaceinusa","female",mockPrize05);
         
  
         //Adding the laureates to the parrent laureates object
@@ -69,6 +113,12 @@ public class MainTest
         mockLaureatesArray.add(mockLaureate01);
         
         mockLaureatesArray.add(mockLaureate02);
+        
+        mockLaureatesArray.add(mockLaureate03);
+        
+        mockLaureatesArray.add(mockLaureate04);
+        
+        mockLaureatesArray.add(mockLaureate05);
   
         mockLaureates = new Laureates(mockLaureatesArray);
         
@@ -121,7 +171,7 @@ public class MainTest
     public void testReadMockObjectsWithNullPrizeObject() throws Exception 
     {
               
-      System.out.println("TestReadMockObjectsWithMissingObjects---------------"); 
+      System.out.println("TestReadMockObjectsWithNullPrizeObjects---------------"); 
             
       //Creating Mock object with null Prizes array
       
@@ -140,10 +190,10 @@ public class MainTest
     }
     
     @Test
-    public void testReadMockObjectsWithNullAfffiliationObjects() throws Exception 
+    public void testReadMockObjectsWithNullAffiliationObjects() throws Exception 
     {
               
-      System.out.println("TestReadMockObjectsWithMissingObjects---------------"); 
+      System.out.println("TestReadMockObjectsWithNullAffiliationObjects---------------"); 
             
       //Creating Mock object with null affiliation array
       
