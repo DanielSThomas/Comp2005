@@ -142,38 +142,7 @@ public class MainTest
       System.out.println("");
         
     }
-    
-    @Test
-    public void testReadMockObjectsWithNullVariables() 
-    {
-              
-      System.out.println("*TestReadMockObjectsWithNullVariables*"); 
-      
-      //Creating Mock object with null vars
-        ArrayList<Affiliation> mockAffiliationNull = new ArrayList<Affiliation>();
-        
-        mockAffiliationNull.add(new Affiliation(null,null,null));
-                 
-        ArrayList<Prize> mockPrizeNull = new ArrayList<Prize>();
-        
-        mockPrizeNull.add(new Prize(0,null,0,null,mockAffiliationNull));
-        
-        Laureate mockLaureateNull = new Laureate(0,null,null,null,null,null,null,null,null,null,null,null,mockPrizeNull);
-        
-        ArrayList<Laureate> mockLaureatesArray = new ArrayList<Laureate>();
-        
-        mockLaureatesArray.add(mockLaureateNull);
- 
-        mockLaureates = new Laureates(mockLaureatesArray);
-      
-        
-      Main.printLaureates(mockLaureates);
-      
-      System.out.println("Test Passed");
-      
-      System.out.println("");
-        
-    }
+       
     
     @Test
     public void testReadMockObjectsWithNullPrizeObject()
