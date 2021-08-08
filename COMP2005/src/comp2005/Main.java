@@ -54,12 +54,14 @@ public class Main {
 
         if (laureates.getLaureates().isEmpty()) 
         {
+            System.out.println("");
             System.out.println("No Laureates found. ");
             System.out.println("Try using different parameters.");
         }
 
         for (int i = 0; i < laureates.getLaureates().size(); i++) 
         {
+            System.out.println("");
             System.out.println("Laureate " + (i + 1));
             System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.println("Laureate - " + laureates.getLaureates().get(i).getAllInfo()); // Print Laureate data
@@ -88,7 +90,7 @@ public class Main {
             }
 
             System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.println("");
+            
         }
 
     }

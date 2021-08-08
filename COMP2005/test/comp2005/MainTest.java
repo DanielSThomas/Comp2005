@@ -133,9 +133,13 @@ public class MainTest
     @Test
     public void testReadMockObjects()
     {
-      System.out.println("TestReadMockObjects---------------"); 
+      System.out.println("*TestReadMockObjects*"); 
       
       Main.printLaureates(mockLaureates);
+      
+      System.out.println("Test Passed");
+      
+      System.out.println("");
         
     }
     
@@ -143,7 +147,7 @@ public class MainTest
     public void testReadMockObjectsWithNullVariables() 
     {
               
-      System.out.println("TestReadMockObjectsWithNullVariables---------------"); 
+      System.out.println("*TestReadMockObjectsWithNullVariables*"); 
       
       //Creating Mock object with null vars
         ArrayList<Affiliation> mockAffiliationNull = new ArrayList<Affiliation>();
@@ -164,6 +168,10 @@ public class MainTest
       
         
       Main.printLaureates(mockLaureates);
+      
+      System.out.println("Test Passed");
+      
+      System.out.println("");
         
     }
     
@@ -171,7 +179,7 @@ public class MainTest
     public void testReadMockObjectsWithNullPrizeObject()
     {
               
-      System.out.println("TestReadMockObjectsWithNullPrizeObjects---------------"); 
+      System.out.println("*TestReadMockObjectsWithNullPrizeObjects*"); 
             
       //Creating Mock object with null Prizes array
       
@@ -186,6 +194,10 @@ public class MainTest
         mockLaureates = new Laureates(mockLaureatesArray);
       
       Main.printLaureates(mockLaureates);
+      
+      System.out.println("Test Passed");
+      
+      System.out.println("");
         
     }
     
@@ -193,7 +205,7 @@ public class MainTest
     public void testReadMockObjectsWithNullAffiliationObjects() 
     {
               
-      System.out.println("TestReadMockObjectsWithNullAffiliationObjects---------------"); 
+      System.out.println("*TestReadMockObjectsWithNullAffiliationObjects*"); 
             
       //Creating Mock object with null affiliation array
       
@@ -212,6 +224,10 @@ public class MainTest
         mockLaureates = new Laureates(mockLaureatesArray);
       
       Main.printLaureates(mockLaureates);
+      
+      System.out.println("Test Passed");
+      
+      System.out.println("");
         
     }
 
@@ -220,6 +236,12 @@ public class MainTest
     public void testReturnLaureatesOnCountryFieldAndYear() 
     {
         
+        System.out.println("*TestReturnLaureatesOnCountryFieldAndYear*");
+        
+        System.out.println("");
+   
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
         Laureates outputLaureates;
         
         String country = "united kingdom";
@@ -228,11 +250,24 @@ public class MainTest
         
         int year = 2010;
         
+        int[] expectedResultIDs = new int[]{2,3}; 
+        
+        
         outputLaureates = Main.returnLaureatesOnCountryFieldAndYear(mockLaureates, country, field, year);
         
-        Main.printLaureates(outputLaureates);
+        for (int i = 0; i < expectedResultIDs.length; i++) 
+        {
+            assertEquals(expectedResultIDs[i],outputLaureates.getLaureates().get(i).getId());
+            
+            System.out.println("Passed " + (i+1) + "/" + expectedResultIDs.length);
+        }
         
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        System.out.println("Test Passed");
         
+        System.out.println("");
+          
     }
     
      @Test
