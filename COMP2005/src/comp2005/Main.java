@@ -42,6 +42,8 @@ public class Main
         formatJsonToString(filePath,formatedFilePath);
                  
         laureates = loadJSONData(formatedFilePath); 
+        
+        printLaureates(laureates);
               
         //printLaureates(returnLaureatesOnCountryFieldAndYear(laureates,"usa","physics",1998));
         
@@ -49,7 +51,7 @@ public class Main
         
         //printLaureates(returnLaureatesOnUniversityAndGender(laureates,"University of Chicago","male"));
         
-        printLaureates(returnLaureatesOnCountryAndAlive(laureates,"usa"));
+        //printLaureates(returnLaureatesOnCountryAndAlive(laureates,"usa"));
        
     }
     
@@ -69,16 +71,28 @@ public class Main
             System.out.println("Laureate " + (i + 1));
             System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.println("Laureate - " + laureates.getLaureates().get(i).getAllInfo()); // Print Laureate data
-                      
-            for (int j = 0; j < laureates.getLaureates().get(i).getPrizes().size(); j++) 
-            {
-               System.out.println("Prize - " + laureates.getLaureates().get(i).getPrizes().get(j).getAllInfo()); // Print Prize data
-                                       
-                for (int k = 0; k < laureates.getLaureates().get(i).getPrizes().get(j).getAffiliations().size(); k++) 
+              
+            if (!laureates.getLaureates().get(i).getPrizes().isEmpty())
+            {               
+                for (int j = 0; j < laureates.getLaureates().get(i).getPrizes().size(); j++) 
                 {
-                 System.out.println("Affiliation - " + laureates.getLaureates().get(i).getPrizes().get(j).getAffiliations().get(k).getAllInfo()); // Print Affiliation data
-                }               
-            }    
+                    System.out.println("Prize - " + laureates.getLaureates().get(i).getPrizes().get(j).getAllInfo()); // Print Prize data
+                  
+                    if (!laureates.getLaureates().get(i).getPrizes().get(j).getAffiliations().isEmpty())
+                    {
+                        for (int k = 0; k < laureates.getLaureates().get(i).getPrizes().get(j).getAffiliations().size(); k++) 
+                        {
+                           System.out.println("Affiliation - " + laureates.getLaureates().get(i).getPrizes().get(j).getAffiliations().get(k).getAllInfo()); // Print Affiliation data
+                        }               
+                    }
+                    else
+                     System.out.println("No Affiliations found. "); 
+                              
+                }    
+            }
+            else
+               System.out.println("No Prizes found. ");  
+  
             System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.println("");           
         }
