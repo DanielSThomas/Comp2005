@@ -226,7 +226,7 @@ public class MainTest
         
         String field = "physics";
         
-        int year = 2011;
+        int year = 2010;
         
         outputLaureates = Main.returnLaureatesOnCountryFieldAndYear(mockLaureates, country, field, year);
         
