@@ -131,7 +131,7 @@ public class MainTest
     }
  
     @Test
-    public void testReadMockObjects() throws Exception 
+    public void testReadMockObjects()
     {
       System.out.println("TestReadMockObjects---------------"); 
       
@@ -140,7 +140,7 @@ public class MainTest
     }
     
     @Test
-    public void testReadMockObjectsWithNullVariables() throws Exception 
+    public void testReadMockObjectsWithNullVariables() 
     {
               
       System.out.println("TestReadMockObjectsWithNullVariables---------------"); 
@@ -168,7 +168,7 @@ public class MainTest
     }
     
     @Test
-    public void testReadMockObjectsWithNullPrizeObject() throws Exception 
+    public void testReadMockObjectsWithNullPrizeObject()
     {
               
       System.out.println("TestReadMockObjectsWithNullPrizeObjects---------------"); 
@@ -190,7 +190,7 @@ public class MainTest
     }
     
     @Test
-    public void testReadMockObjectsWithNullAffiliationObjects() throws Exception 
+    public void testReadMockObjectsWithNullAffiliationObjects() 
     {
               
       System.out.println("TestReadMockObjectsWithNullAffiliationObjects---------------"); 
@@ -220,6 +220,17 @@ public class MainTest
     public void testReturnLaureatesOnCountryFieldAndYear() 
     {
         
+        Laureates outputLaureates;
+        
+        String country = "united kingdom";
+        
+        String field = "physics";
+        
+        int year = 2011;
+        
+        outputLaureates = Main.returnLaureatesOnCountryFieldAndYear(mockLaureates, country, field, year);
+        
+        Main.printLaureates(outputLaureates);
         
         
     }
