@@ -215,9 +215,33 @@ public class MainTest
         
     }
 
-
-    @Test
+    
+     @Test
     public void testReturnLaureatesOnCountryFieldAndYear() 
+    {
+        
+        
+        
+    }
+    
+     @Test
+    public void testReturnLaureatesOnShareFieldAndYear() 
+    {
+        
+        
+        
+    }
+    
+     @Test
+    public void testReturnLaureatesOnUniversityAndGender() 
+    {
+        
+        
+        
+    }
+    
+     @Test
+    public void testReturnLaureatesOnCountryAndAlive() 
     {
         
         
