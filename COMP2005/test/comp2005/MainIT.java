@@ -53,9 +53,9 @@ public class MainIT {
               
         System.out.println("TestLoadJSONDataLength---------------");
                   
-        String filePath = "src\\Comp2005\\laureate-data.json";
+        String filePath = "src\\Comp2005\\laureate-sampledata.json";
         String formatedFilePath = "src\\Comp2005\\formated-laureate-data.json";
-        int expResult = 955;
+        int expResult = 26;
         
         Path path = Paths.get(formatedFilePath); // Delete the old formated laureate data
         if( Files.deleteIfExists(path))
