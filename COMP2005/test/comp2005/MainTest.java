@@ -49,12 +49,26 @@ public class MainTest
         
         //Mock laureate 02
         
+        ArrayList<Affiliation> mockAffiliation02 = new ArrayList<Affiliation>();
+        
+        mockAffiliation02.add(new Affiliation("Another University","Nowhere","United Kingdom"));
+        
+        mockAffiliation02.add(new Affiliation("A New University","Someplace","United Kingdom"));
+        
+        ArrayList<Prize> mockPrize02 = new ArrayList<Prize>();
+        
+        mockPrize02.add(new Prize(2019,"physics",2,"for their discoveries in physics.",mockAffiliation02));
+        
+        Laureate mockLaureate02 = new Laureate(01,"Dean","Smith","1967-01-12","0000-00-00","USA","US","Somewhere",null,null,null,"male",mockPrize02);
+        
  
         //Adding the laureates to the parrent laureates object
         
         ArrayList<Laureate> mockLaureatesArray = new ArrayList<Laureate>();
         
         mockLaureatesArray.add(mockLaureate01);
+        
+        mockLaureatesArray.add(mockLaureate02);
   
         mockLaureates = new Laureates(mockLaureatesArray);
         
@@ -69,14 +83,94 @@ public class MainTest
     @Test
     public void testReadMockObjects() throws Exception 
     {
-       
+      System.out.println("TestReadMockObjects---------------"); 
+      
+      Main.printLaureates(mockLaureates);
+        
+    }
+    
+    @Test
+    public void testReadMockObjectsWithNullVariables() throws Exception 
+    {
+              
+      System.out.println("TestReadMockObjectsWithNullVariables---------------"); 
+      
+      //Creating Mock object with null vars
+        ArrayList<Affiliation> mockAffiliationNull = new ArrayList<Affiliation>();
+        
+        mockAffiliationNull.add(new Affiliation(null,null,null));
+                 
+        ArrayList<Prize> mockPrizeNull = new ArrayList<Prize>();
+        
+        mockPrizeNull.add(new Prize(0,null,0,null,mockAffiliationNull));
+        
+        Laureate mockLaureateNull = new Laureate(0,null,null,null,null,null,null,null,null,null,null,null,mockPrizeNull);
+        
+        ArrayList<Laureate> mockLaureatesArray = new ArrayList<Laureate>();
+        
+        mockLaureatesArray.add(mockLaureateNull);
+ 
+        mockLaureates = new Laureates(mockLaureatesArray);
+      
+        
+      Main.printLaureates(mockLaureates);
+        
+    }
+    
+    @Test
+    public void testReadMockObjectsWithNullPrizeObject() throws Exception 
+    {
+              
+      System.out.println("TestReadMockObjectsWithMissingObjects---------------"); 
+            
+      //Creating Mock object with null Prizes array
+      
+        ArrayList<Prize> mockPrizeNull = new ArrayList<Prize>();
+      
+        Laureate mockLaureateNull = new Laureate(0,null,null,null,null,null,null,null,null,null,null,null,mockPrizeNull);
+        
+        ArrayList<Laureate> mockLaureatesArray = new ArrayList<Laureate>();
+        
+        mockLaureatesArray.add(mockLaureateNull);
+ 
+        mockLaureates = new Laureates(mockLaureatesArray);
+      
+      Main.printLaureates(mockLaureates);
+        
+    }
+    
+    @Test
+    public void testReadMockObjectsWithNullAfffiliationObjects() throws Exception 
+    {
+              
+      System.out.println("TestReadMockObjectsWithMissingObjects---------------"); 
+            
+      //Creating Mock object with null affiliation array
+      
+        ArrayList<Affiliation> mockAffiliationNull = new ArrayList<Affiliation>();
+      
+        ArrayList<Prize> mockPrizeNull = new ArrayList<Prize>();
+        
+        mockPrizeNull.add(new Prize(0,null,0,null,mockAffiliationNull));
+      
+        Laureate mockLaureateNull = new Laureate(0,null,null,null,null,null,null,null,null,null,null,null,mockPrizeNull);
+        
+        ArrayList<Laureate> mockLaureatesArray = new ArrayList<Laureate>();
+        
+        mockLaureatesArray.add(mockLaureateNull);
+ 
+        mockLaureates = new Laureates(mockLaureatesArray);
+      
       Main.printLaureates(mockLaureates);
         
     }
 
+
     @Test
     public void testReturnLaureatesOnCountryFieldAndYear() 
     {
+        
+        
         
     }
     
