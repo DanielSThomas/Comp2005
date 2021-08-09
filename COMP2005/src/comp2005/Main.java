@@ -41,11 +41,15 @@ public class Main {
 
         laureates = loadJSONData(formatedFilePath);
 
-        //printLaureates(laureates);
-
+        
+        //Human Readable - Functionality using full dataset. Uncomment to run other functionalities.
+        
         printLaureates(returnLaureatesOnCountryFieldAndYear(laureates,"usa","physics",1998));
+        
         //printLaureates(returnLaureatesOnShareFieldAndYear(laureates,"physics",2020));
+        
         //printLaureates(returnLaureatesOnUniversityAndGender(laureates,"University of Chicago","male"));
+        
         //printLaureates(returnLaureatesOnCountryAndAlive(laureates,"usa"));
     }
 
