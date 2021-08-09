@@ -59,7 +59,7 @@ public class MainTest
         
         mockPrize02.add(new Prize(2010,"physics",2,"for their discoveries in physics.",mockAffiliation02));
         
-        Laureate mockLaureate02 = new Laureate(02,"Anna","Thomas","1960-08-12","0000-00-00","United Kingdom","GB","Nowhere",null,null,null,"female",mockPrize02);
+        Laureate mockLaureate02 = new Laureate(02,"Anna","Thomas","1960-08-12","0000-00-00","United Kingdom","GB","Nowhere",null,null,null,"male",mockPrize02);
         
         
         //Mock laureate 03
@@ -207,7 +207,7 @@ public class MainTest
         
         System.out.println("*TestReturnLaureatesOnCountryFieldAndYear*");
         
-        System.out.println("");
+       
    
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
@@ -221,7 +221,6 @@ public class MainTest
         
         //Stage 01 General test
         
-        System.out.println("Stage 1 of Test");
         
         int[] Stage01ExpectedResultIDs = new int[]{2,3}; 
         
@@ -230,6 +229,8 @@ public class MainTest
         field = "physics";
                 
         year = 2010;
+        
+        System.out.println("Stage 1 of Test:   Country  = " + country  + "  Field = " + field + "  Year = " + year);
         
         outputLaureates = Main.returnLaureatesOnCountryFieldAndYear(mockLaureates, country, field, year);       
         
@@ -244,7 +245,6 @@ public class MainTest
         
         //Stage 02 Testing by year
         
-        System.out.println("Stage 2 of Test: Testing by year");
                 
         int[] Stage02ExpectedResultIDs = new int[]{4}; 
         
@@ -253,6 +253,8 @@ public class MainTest
         field = "chemistry";
                 
         year = 2011;
+        
+        System.out.println("Stage 2 of Test:   Country  = " + country  + "  Field = " + field + "  Year = " + year);
         
         outputLaureates = Main.returnLaureatesOnCountryFieldAndYear(mockLaureates, country, field, year);       
           
@@ -264,7 +266,7 @@ public class MainTest
 
        //Stage 03 Testing by country
         
-        System.out.println("Stage 3 of Test: Testing by country");
+        
                 
         int[] Stage03ExpectedResultIDs = new int[]{1}; 
         
@@ -273,6 +275,8 @@ public class MainTest
         field = "chemistry";
                 
         year = 2009;
+        
+        System.out.println("Stage 3 of Test:   Country  = " + country  + "  Field = " + field + "  Year = " + year);
         
         outputLaureates = Main.returnLaureatesOnCountryFieldAndYear(mockLaureates, country, field, year);       
           
@@ -294,10 +298,45 @@ public class MainTest
      @Test
     public void testReturnLaureatesOnShareFieldAndYear() 
     {
-       // System.out.println("*TestReturnLaureatesOnShareFieldAndYear*");
+        System.out.println("*TestReturnLaureatesOnShareFieldAndYear*");
         
-       
         
+   
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        Laureates outputLaureates;           
+        
+        String field = "";
+        
+        int year = 0;
+        
+        //Stage 01 General test
+        
+        
+        
+        int[] Stage01ExpectedResultIDs = new int[]{2,3};            
+        
+        field = "physics";
+                
+        year = 2010;
+        
+        System.out.println("Stage 1 of Test:   Field = " + field  + "   Year = " + year );
+        
+        outputLaureates = Main.returnLaureatesOnShareFieldAndYear(mockLaureates, field, year);       
+        
+        for (int i = 0; i < Stage01ExpectedResultIDs.length; i++) 
+        {
+            assertEquals(Stage01ExpectedResultIDs[i],outputLaureates.getLaureates().get(i).getId());
+            
+            System.out.println("Passed Stage 1 " + (i+1) + "/" + Stage01ExpectedResultIDs.length + " Expected ID = " + Stage01ExpectedResultIDs[i] + " Output ID = " + outputLaureates.getLaureates().get(i).getId());
+                            
+        }          
+        
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        System.out.println("Test Passed");
+        
+        System.out.println("");
         
     }
     
@@ -305,7 +344,65 @@ public class MainTest
     public void testReturnLaureatesOnUniversityAndGender() 
     {
         
+        System.out.println("*TestReturnLaureatesOnUniversityAndGender*");
         
+        
+   
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        Laureates outputLaureates;           
+        
+        String university = "";
+        
+        String gender = "";
+        
+        //Stage 01 General test
+        
+        int[] Stage01ExpectedResultIDs = new int[]{5};            
+        
+        university = "University of chemistry";
+                
+        gender = "female";
+        
+         System.out.println("Stage 1 of Test:   University = " + university + "   Gender = " + gender );
+        
+        outputLaureates = Main.returnLaureatesOnUniversityAndGender(mockLaureates, university, gender);       
+        
+        for (int i = 0; i < Stage01ExpectedResultIDs.length; i++) 
+        {
+            assertEquals(Stage01ExpectedResultIDs[i],outputLaureates.getLaureates().get(i).getId());
+            
+            System.out.println("Passed Stage 1 " + (i+1) + "/" + Stage01ExpectedResultIDs.length + " Expected ID = " + Stage01ExpectedResultIDs[i] + " Output ID = " + outputLaureates.getLaureates().get(i).getId());
+                            
+        }          
+        
+        //Stage 02 General test
+        
+        
+        
+        int[] Stage02ExpectedResultIDs = new int[]{2,3};            
+        
+        university = "another university";
+                
+        gender = "male";
+        
+        System.out.println("Stage 2 of Test:   University = " + university + "   Gender = "+ gender );
+        
+        outputLaureates = Main.returnLaureatesOnUniversityAndGender(mockLaureates, university, gender);       
+        
+        for (int i = 0; i < Stage02ExpectedResultIDs.length; i++) 
+        {
+            assertEquals(Stage02ExpectedResultIDs[i],outputLaureates.getLaureates().get(i).getId());
+            
+            System.out.println("Passed Stage 2 " + (i+1) + "/" + Stage02ExpectedResultIDs.length + " Expected ID = " + Stage02ExpectedResultIDs[i] + " Output ID = " + outputLaureates.getLaureates().get(i).getId());
+                            
+        }          
+        
+         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        System.out.println("Test Passed");
+        
+        System.out.println("");
         
     }
     
@@ -313,7 +410,41 @@ public class MainTest
     public void testReturnLaureatesOnCountryAndAlive() 
     {
         
+        System.out.println("*TestReturnLaureatesOnCountryAndAlive*");
         
+        
+   
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        Laureates outputLaureates;           
+        
+        String country = "";
+             
+        //Stage 01 General test
+        
+        int[] Stage01ExpectedResultIDs = new int[]{1};            
+        
+        country = "usa";
+                
+        
+        
+         System.out.println("Stage 1 of Test:   Country = " + country);
+        
+        outputLaureates = Main.returnLaureatesOnCountryAndAlive(mockLaureates, country);       
+        
+        for (int i = 0; i < Stage01ExpectedResultIDs.length; i++) 
+        {
+            assertEquals(Stage01ExpectedResultIDs[i],outputLaureates.getLaureates().get(i).getId());
+            
+            System.out.println("Passed Stage 1 " + (i+1) + "/" + Stage01ExpectedResultIDs.length + " Expected ID = " + Stage01ExpectedResultIDs[i] + " Output ID = " + outputLaureates.getLaureates().get(i).getId());
+                            
+        }         
+        
+         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        System.out.println("Test Passed");
+        
+        System.out.println("");
         
     }
     

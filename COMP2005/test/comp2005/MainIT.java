@@ -51,7 +51,12 @@ public class MainIT {
     public void testLoadJSONDataLength() throws Exception //Loads, formats and tests the data by checking it has the correct amount of laureates
     {       
               
-        System.out.println("TestLoadJSONDataLength---------------");
+        System.out.println("*TestLoadJSONDataLength*");
+        
+        
+        
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
                   
         String filePath = "src\\Comp2005\\laureate-sampledata.json";
         String formatedFilePath = "src\\Comp2005\\formated-laureate-data.json";
@@ -70,10 +75,14 @@ public class MainIT {
         System.out.println("Testing Length");
         
         assertEquals(expResult, result.getLaureates().size());    
+                
+        System.out.println("Length = " + result.getLaureates().size() + "  Expected length = " + expResult);
         
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
         System.out.println("Test Passed");
         
-        System.out.println("Length = " + result.getLaureates().size() + "  Expected length = " + expResult);
+        System.out.println("");
         
     }  
     
